@@ -1,0 +1,35 @@
+[package]
+name = "hyprbridge-daemon"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+async-trait.workspace = true
+axum.workspace = true
+chrono.workspace = true
+futures-util.workspace = true
+hyprbridge-config = { path = "../config" }
+hyprbridge-core = { path = "../core" }
+hyprbridge-diagnostics = { path = "../diagnostics" }
+hyprbridge-input = { path = "../input" }
+hyprbridge-network = { path = "../network" }
+hyprbridge-platform-linux = { path = "../platform-linux" }
+hyprbridge-platform-mac = { path = "../platform-mac" }
+hyprbridge-platform-win = { path = "../platform-win" }
+hyprbridge-clipboard = { path = "../clipboard" }
+hyprbridge-filetransfer = { path = "../filetransfer" }
+hyprbridge-protocol = { path = "../protocol" }
+hyprbridge-workspace = { path = "../workspace" }
+hyprbridge-peripherals = { path = "../peripherals" }
+serde_json.workspace = true
+tokio.workspace = true
+tower-http.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+uuid.workspace = true
+
+[dependencies.http]
+workspace = true

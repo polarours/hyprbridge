@@ -1,0 +1,18 @@
+[package]
+name = "hyprbridge-filetransfer"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+chrono.workspace = true
+hex = "0.4.3"
+hyprbridge-protocol = { path = "../protocol" }
+mime_guess = "2.0"
+sha2.workspace = true
+tokio = { workspace = true, features = ["fs", "io-util"] }
+tracing.workspace = true
+uuid.workspace = true
+walkdir = "2"

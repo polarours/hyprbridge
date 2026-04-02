@@ -1,0 +1,47 @@
+@import "@hyprbridge/ui/src/styles.css";
+
+.ib-copy {
+  color: var(--ib-text-muted);
+  line-height: 1.6;
+}
+
+.ib-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.ib-callout,
+.ib-log {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(139, 161, 199, 0.12);
+}
+
+.ib-callout__header,
+.ib-log {
+  display: grid;
+  gap: 8px;
+}
+
+.ib-callout__header {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.ib-log span {
+  color: var(--ib-text-muted);
+  font-size: 0.86rem;
+}
+
+.ib-log p,
+.ib-callout p {
+  margin: 0;
+  color: var(--ib-text-muted);
+  line-height: 1.5;
+}
+
+.ib-mono {
+  font-family: "IBM Plex Mono", "Fira Code", monospace;
+  font-size: 0.82rem;
+}

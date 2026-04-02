@@ -1,0 +1,24 @@
+# HyprBridge peripheral access (mirrors Solaar's 42-logitech-unify-permissions.rules).
+# Install: sudo cp udev/99-hyprbridge-peripherals.rules /etc/udev/rules.d/
+#          sudo udevadm control --reload-rules && sudo udevadm trigger
+# Then replug the receiver. Granting raw HID access allows firmware writes;
+# only install this on machines you control.
+
+KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess", OPTIONS+="static_node=uinput"
+
+ACTION=="remove", GOTO="ib_peripherals_end"
+SUBSYSTEM!="hidraw", GOTO="ib_peripherals_end"
+
+# Narrow scope: only the G304/G305 Lightspeed receiver, not every Logitech
+# HID device. Bluetooth devices are intentionally not covered.
+ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c53f", GOTO="ib_peripherals_apply"
+GOTO="ib_peripherals_end"
+
+LABEL="ib_peripherals_apply"
+TAG+="uaccess"
+# uaccess depends on an active logind seat; on headless/SSH-like sessions no
+# ACL is created. The input group is a deterministic fallback on this machine.
+GROUP="input"
+MODE="0660"
+
+LABEL="ib_peripherals_end"

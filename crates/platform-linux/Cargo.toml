@@ -1,0 +1,14 @@
+[package]
+name = "hyprbridge-platform-linux"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+evdev.workspace = true
+hyprbridge-input = { path = "../input" }
+hyprbridge-platform-wayland = { path = "../platform-wayland" }
+hyprbridge-platform-x11 = { path = "../platform-x11" }
+hyprbridge-protocol = { path = "../protocol" }
+tokio.workspace = true

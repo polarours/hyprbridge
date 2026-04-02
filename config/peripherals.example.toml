@@ -1,0 +1,71 @@
+# HyprBridge peripheral configuration
+# Copy to ~/.config/hyprbridge/peripherals.toml (or set XDG_CONFIG_HOME).
+#
+# This configures the devices themselves (DPI, report rate, button actions,
+# per-application profiles). Cross-machine sharing is configured separately.
+
+version = 1
+
+[[devices]]
+name = "Logitech G304"
+# G304/G305 use the Lightspeed receiver 046d:c53f, but the mouse input node
+# reports 046d:4074. Match the device NAME, not the receiver product id.
+match = { name = "Logitech G304" }
+backend = "hidpp20"
+default_profile = "desktop"
+
+[[devices.profiles]]
+name = "desktop"
+dpi = [800, 1600, 3200]
+active_dpi = 1
+report_rate = 1000
+
+# Hardware note: G304 has no REPROG CONTROLS (HID++ 0x1B04), so button
+# remapping cannot be written to the mouse. These bindings are applied in
+# userspace by the evdev/uinput remap engine.
+#
+# This particular G304 has ONBOARD button mappings: the side buttons are
+# programmed to Ctrl+C / Ctrl+V. They therefore arrive as KEY_LEFTCTRL +
+# KEY_C / KEY_V on the mouse evdev node, not as BTN_SIDE / BTN_EXTRA.
+# Swallow the modifier, then bind the letter that identifies each button.
+[[devices.profiles.bindings]]
+event = "KEY_LEFTCTRL"
+action = { type = "disable" }
+
+[[devices.profiles.bindings]]
+event = "KEY_V"
+action = { type = "key", keys = ["KEY_LEFTMETA"] }
+
+[[devices.profiles.bindings]]
+event = "KEY_C"
+action = { type = "exec", argv = ["notify-send", "HyprBridge", "copy button"] }
+
+# Selected automatically when the focused Hyprland/Sway/Niri window class is
+# "firefox" (case-insensitive). Falls back to default_profile otherwise.
+[[devices.profiles]]
+name = "browser"
+window_class = "firefox"
+dpi = [800, 1600]
+active_dpi = 0
+
+[[devices.profiles.bindings]]
+event = "KEY_LEFTCTRL"
+action = { type = "disable" }
+
+[[devices.profiles.bindings]]
+event = "KEY_V"
+action = { type = "profile", value = "desktop" }
+
+# Generic keyboard example; any evdev device can be configured this way.
+[[devices]]
+name = "Keyboard"
+match = { name = "Keyboard" }
+backend = "evdev"
+default_profile = "base"
+
+[[devices.profiles]]
+name = "base"
+
+[[devices.profiles.bindings]]
+event = "KEY_CAPSLOCK"
+action = { type = "key", keys = ["KEY_ESC"] }

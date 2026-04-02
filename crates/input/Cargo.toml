@@ -1,0 +1,11 @@
+[package]
+name = "hyprbridge-input"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+async-trait.workspace = true
+hyprbridge-protocol = { path = "../protocol" }
+thiserror.workspace = true

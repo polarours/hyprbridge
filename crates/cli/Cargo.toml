@@ -1,0 +1,19 @@
+[package]
+name = "hyprbridge-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+hyprbridge-daemon = { path = "../daemon" }
+hyprbridge-diagnostics = { path = "../diagnostics" }
+hyprbridge-protocol = { path = "../protocol" }
+hyprbridge-peripherals = { path = "../peripherals" }
+hyprbridge-remap = { path = "../remap" }
+reqwest.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true

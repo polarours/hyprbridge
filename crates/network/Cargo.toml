@@ -1,0 +1,30 @@
+[package]
+name = "hyprbridge-network"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+async-trait.workspace = true
+base64.workspace = true
+chrono.workspace = true
+ed25519-dalek.workspace = true
+hex.workspace = true
+hyprbridge-filetransfer = { path = "../filetransfer" }
+hyprbridge-protocol = { path = "../protocol" }
+mdns-sd.workspace = true
+quinn.workspace = true
+rand.workspace = true
+rcgen.workspace = true
+rustls.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+futures-util.workspace = true
+dashmap = "6"
+tokio.workspace = true
+tokio-tungstenite = { version = "0.24", features = ["native-tls"] }
+tracing.workspace = true
+uuid.workspace = true

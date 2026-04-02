@@ -1,0 +1,15 @@
+[package]
+name = "hyprbridge-remap"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+evdev.workspace = true
+hyprbridge-peripherals = { path = "../peripherals" }
+serde_json.workspace = true
+
+[lints]
+workspace = true

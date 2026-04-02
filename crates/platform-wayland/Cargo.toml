@@ -1,0 +1,12 @@
+[package]
+name = "hyprbridge-platform-wayland"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+evdev.workspace = true
+hyprbridge-input = { path = "../input" }
+hyprbridge-protocol = { path = "../protocol" }
+serde_json.workspace = true

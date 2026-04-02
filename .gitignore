@@ -1,0 +1,20 @@
+/target
+/dist
+/node_modules
+/.turbo
+**/.turbo
+/.pnpm-store
+/.idea
+/.vscode
+/coverage
+*.log
+.DS_Store
+
+# Tauri
+/src-tauri/target
+
+# Runtime state
+/.hyprbridge
+
+# Generated screenshots / captures
+/artifacts

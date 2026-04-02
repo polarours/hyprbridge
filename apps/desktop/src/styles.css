@@ -1,0 +1,7 @@
+@import "@hyprbridge/ui/src/styles.css";
+
+.desktop-copy {
+  margin: 0;
+  color: var(--ib-text-muted);
+  line-height: 1.6;
+}
